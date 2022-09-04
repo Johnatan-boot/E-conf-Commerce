@@ -1,0 +1,15 @@
+<app-navbar>
+  <mat-toolbar >
+    <span>Confeitaria do Jony</span>
+  </mat-toolbar>
+</app-navbar>
+<app-sidebar (onToggleSideNav)="onToggleSideNav($event)">
+  <mat-card></mat-card>
+</app-sidebar>
+
+<app-body
+    [collapsed]="isSideNavCollapsed"
+    [screenWidth]="screenWidth"
+></app-body>
+
+<router-outlet></router-outlet>

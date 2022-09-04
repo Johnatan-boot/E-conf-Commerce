@@ -1,0 +1,51 @@
+<div  class="contador">
+  <p valor="0">{{valor}}</p>
+</div>
+<mat-card>
+<app-listabolos class="cart-bolos"></app-listabolos>
+</mat-card>
+<h3 class="tittle_car">Carrinho de Compras</h3>
+
+<table class="table table-primary table-striped">
+  <thead>
+    <tr>
+      <th>avatar</th>
+      <th>Tipo Bolo</th>
+      <th>Sabor</th>
+      <th>Codigo</th>
+      <th>Quantidade</th>
+      <th>Peso </th>
+      <th>Preço Unitario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let bolo of bolos">
+    <tr>
+     <td> <img [src]="bolo.imageUrl" width="40" height="40" ></td>
+      <td>{{bolo.tipoBolo}}</td>
+      <td>{{bolo.nome}}</td>
+      <td>{{bolo.codigo}}</td>
+      <td>{{bolo.quantidade}}</td>
+      <td>{{bolo.peso}}</td>
+      <td>{{bolo.preco | currency:'BR'}}</td>
+    </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+<div class="containerbotaopag">
+  <p class="text-end">Total {{total() | currency:'R$'}}</p>
+<div class="text-end">
+    <button class="btn btn-primary">Comprar</button>
+</div>
+
+</div>
+
+
+
+<div>
+  <button  class="btn btn-primary"  (click)="decrementa()">-</button>
+   <input type="text" [value]="valor" readonly>
+  <button  class="btn btn-primary" (click)="incrementa()">+</button>
+</div>
+
